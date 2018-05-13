@@ -4,5 +4,5 @@ target: /data/projects/tools/backup-script/test-target
 ---
 source: /data/projects/tools/backup-script/test-source
 target: /data/projects/tools/backup-script/test-target2
-package: True
+archive: True
 max-history: 5

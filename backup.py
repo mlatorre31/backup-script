@@ -20,8 +20,8 @@ def read_configs():
             'target':  value['target']
         }
 
-        if 'package' in value:
-            config['package'] = value['package']
+        if 'archive' in value:
+            config['archive'] = value['archive']
 
         if 'max-history' in value:
             config['max_history'] = value['max-history']
@@ -45,7 +45,7 @@ def backup_all():
 
     for config in configs:
         backup(config['source'], config['target'],
-               config['package'] if 'package' in config else False,
+               config['archive'] if 'archive' in config else False,
                config['max_history'] if 'max_history' in config else 0)
 
 
@@ -92,7 +92,7 @@ def copy_files(source, target):
             copy_files(source_file, os.path.join(target, filename))
 
 
-# Function that builds the package name to be used.
+# Function that builds the archive name to be used.
 def get_archive_name(source):
     basename = os.path.basename(source)
     return basename + '_' + time.strftime('%Y-%m-%d_%H-%M-%S') + '.tar.gz'
